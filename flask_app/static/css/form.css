@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: rgb(151, 223, 223);
+  font-family: "Nunito", sans-serif;
+  margin-bottom: 20px;
+}
+
+.couple {
+  position: absolute;
+  right: 0%;
+  bottom: 0%;
+  width: 35rem;
+  transform: scale(-1, 1);
+  z-index: -7;
+}
+
+main {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.stepper {
+  width: 20rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.step--1,
+.step--2,
+.step--3,
+.step--4 {
+  width: 5rem;
+  padding: 0.5rem 0;
+  background: #fff;
+  color: #666;
+  text-align: center;
+}
+.step--1,
+.step--2,
+.step--3 {
+  border-right: 1px solid #666;
+}
+
+.form {
+  background: #fff;
+  text-align: center;
+  position: absolute;
+  top: 43%;
+  width: 25rem;
+  box-shadow: 0.2rem 0.2rem 0.5rem rgba(51, 51, 51, 0.2);
+  display: none;
+  border-radius: 1rem;
+  overflow: hidden;
+  font-family: "Nunito", sans-serif;
+  box-shadow: 1px 3px 10px azure;
+}
+.form--header-container {
+  background: rgb(0,139,160);
+  background: linear-gradient(180deg, rgba(0,139,160,1) 0%, rgba(0,189,186,1) 100%);
+  height: 6rem;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+}
+
+.form--header-title {
+  color: white;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 1.4rem;
+}
+
+.form--header-text {
+  color: white;
+  padding: 0.5rem 0;
+}
+
+input[type="text"] {
+  padding: 0.8rem;
+  margin: auto;
+  margin-top: 0.5rem;
+  width: 20rem;
+  display: block;
+  border-radius: 0.5rem;
+  outline: none;
+  border: 1px solid #bdbdbb;
+}
+
+.sel {
+  padding: 0.8rem;
+  margin: auto;
+  margin-top: 0.5rem;
+  width: 20rem;
+  display: block;
+  border-radius: 0.5rem;
+  outline: none;
+  color: #666;
+  border: 1px solid #bdbdbb;
+}
+
+.form__btn {
+  background: rgb(0,139,160);
+  background: linear-gradient(180deg, rgba(0,139,160,1) 0%, rgba(0,189,186,1) 100%);
+  color: #fff;
+  outline: none;
+  border: none;
+  padding: 0.5rem 0.7rem;
+  width: 7rem;
+  margin: 1rem auto;
+  border-radius: 0.9rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+}
+.form--message-text {
+  width: 25rem;
+  background: #fff;
+  color: #444;
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: 1.4rem;
+  box-shadow: 0.2rem 0.2rem 0.5rem rgba(51, 51, 51, 0.2);
+  animation: fadeIn 0.8s;
+  border-radius: 1rem;
+  line-height: 3rem;
+}
+
+.form-active {
+  z-index: 1000;
+  display: block;
+}
+.form-active-animate {
+  animation: moveRight 1s;
+}
+.form-inactive {
+  display: block;
+  animation: moveLeft 1s;
+}
+
+.step-active {
+  background: rgb(0,139,160);
+  background: linear-gradient(180deg, rgba(0,139,160,1) 0%, rgba(0,189,186,1) 100%);
+  color: #fff;
+  border: 1px solid rgb(0,139,160);
+}
+@keyframes moveRight {
+  0% {
+    transform: translateX(-27rem) scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0rem) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(0rem) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(27rem) scale(0.9);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.ger{
+  align-items: center;
+  margin: auto;
+}
+
+.ge {
+  padding: 0.5rem;
+  color: #666;
+  margin: auto;
+  margin-top: 0.5rem;
+  width: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0.5rem;
+  outline: none;
+  border: 1px solid #bdbdbb;
+}
+.wehe {
+  margin: auto;
+  margin-top: 0.5rem;
+  width: 20rem;
+  display: flex;
+  align-items: center;
+}
+#hh {
+  width: 9.5rem;
+}
+
+.djathtasss {
+  margin-left: 30px;
+}
+
+.form--message {
+  display: none;
+}
+
+.log {
+  color: white;
+  background-color: rgb(190, 74, 80);
+  margin-bottom: auto;
+}
+.log2 {
+  color: white;
+  background-color: rgb(188, 190, 74);
+  margin-bottom: auto;
+}
+
+.bbb {
+  display: block;
+  margin: auto;
+}
+
+.djathtas {
+  position: absolute;
+  top: 50%;
+  left: 90%;
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+}
+.mapo {
+  margin-left: 30px;
+  border: 1px solid azure;
+  border-radius: 20px;
+  box-shadow: 1px 3px 10px azure;
+}
+
+.mywo {
+  border-radius: 20px;
+  color: azure;
+  box-shadow: 1px 3px 10px azure;
+  border: none;
+}

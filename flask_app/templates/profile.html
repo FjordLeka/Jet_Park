@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/svg.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/add.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/download.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <title>JetPark</title>
+    <style>
+        .mywo {
+            border-radius: 20px;
+            color: azure;
+            box-shadow: 1px 3px 10px azure;
+            border: none;
+        }
+
+        th,
+        td {
+            border-right: 1px solid black;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+            padding: 7px;
+        }
+
+        thead {
+            background-color: rgb(192, 169, 40);
+        }
+
+        tbody {
+            background-color: rgb(204, 191, 117);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="d-flex p-3 text-center justify-content-around" style="box-shadow: 0px 0px 10px azure;">
+        <h1 class="hello">Hello {{loggedUser.first_name}}</h1>
+        <a class="btn log2" href="/dashboard">Dashboard</a>
+        <a class="btn log" href="/logout">Logout</a>
+    </nav>
+    <main>
+
+        <div class="row kk">
+            <div class="col p-5 m-auto">
+                <h2 class="text-center">My Jets</h2>
+                <table class="m-auto bb">
+                    <thead>
+                        <tr>
+                            <th class="bb" scope="col">Model</th>
+                            <th class="bb" scope="col">Registration Number</th>
+                            <th class="bb" scope="col">Fuel Type</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for jet in myJets %}
+                        <tr>
+                            <td class="bb" scope="row">{{ jet.model }}</td>
+                            <td class="bb" scope="row">{{ jet.registration_nr }}</td>
+                            <td class="bb" scope="row">{{ jet.fuel_type }}</td>
+
+                            <td>
+                                {% if loggedUser.id == jet.user_id %}
+                                <a class="ed" href="/edit/jet/{{ jet.id }}">Edit</a>
+                                <a class="del" href="/delete/jet/{{ jet.id }}">Delete</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col p-5 m-auto">
+                <h2 class="text-center">Your Information</h2>
+                <table class="m-auto bb">
+                    <thead>
+                        <tr>
+                            <th class="bb" scope="col">First Name</th>
+                            <th class="bb" scope="col">Last Name</th>
+                            <th class="bb" scope="col">Phone Number</th>
+                            <th class="bb" scope="col">Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{loggedUser.first_name}}</td>
+                            <td>{{loggedUser.last_name}}</td>
+                            <td>{{loggedUser.email}}</td>
+                            <td>{{loggedUser.phone_number}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </main>
+    <div class="contentt">
+        <svg version="1.1" id="airplane-loader" xmlns="http://www.w3.org/2000/svg" width="144" height="48"
+            viewBox="0 0 144 48">
+            <path id="airplane-take-off" fill="#002F5F"
+                d="M59.124,34L56,29h-4l2.947,11H89c1.657,0,3-1.343,3-3s-1.343-3-3-3H78.998L69,18h-4l4.287,16H59.124z" />
+            <rect id="ground" x="52" y="44" fill="#002F5F" width="40" height="4" />
+        </svg>
+        <svg version="1.1" id="airplane-loader" xmlns="http://www.w3.org/2000/svg" width="144" height="48"
+            viewBox="0 0 144 48">
+            <path id="airplane-landing" fill="#002F5F"
+                d="M59.124,34L56,29h-4l2.947,11H89c1.657,0,3-1.343,3-3s-1.343-3-3-3H78.998L69,18h-4l4.287,16H59.124z" />
+            <rect id="ground" x="52" y="44" fill="#002F5F" width="40" height="4" />
+        </svg>
+    </div>
+</body>
+
+</html>

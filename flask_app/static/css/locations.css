@@ -1,0 +1,240 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat';
+}
+
+.flex-2-rows {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-2-rows>div {
+    flex-basis: 50%;
+    width: 50%;
+}
+#nany{
+    font-size: 30px;
+}
+.flex-2-rows>div:nth-child(1) {
+    text-align: left;
+}
+
+.flex-2-rows>div:nth-child(2) {
+    text-align: right;
+}
+
+.with-wrap {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+html,
+body {
+    height: 100vh;
+    width: 100vw;
+    color: white;
+}
+
+body {
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.avion {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    z-index: -5;
+    width: 100%;
+    transform: scale(1.2);
+}
+
+.menu {
+    padding-top: 30px;
+}
+
+.menu>div {
+    padding: 20px;
+}
+
+.main {
+    display: inline-block;
+    width: 50%;
+    z-index: 2;
+    text-align: center;
+    background: transparent;
+    color: white;
+    perspective: 1000px;
+    opacity: 1;
+    margin-bottom: 4.5rem;
+}
+
+.tsh {
+    text-shadow: 2px 2px 5px black;
+}
+.main.open .cards {
+    transform: rotateY(90deg);
+    transform-origin: left;
+    opacity: 0;
+}
+
+.parking-slot {
+    display: flex;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    gap: 10px;
+}
+
+.cards {
+    padding-top: 13rem;
+    position: relative;
+    width: 150%;
+    display: flex;
+    flex-wrap: wrap;
+    transition: transform 1s ease-in, opacity 1s linear;
+    margin-left: -90px;
+}
+
+.cards .card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-basis: 30%;
+    min-height: 100px;
+    background-color: azure;
+    padding: 15px 0px;
+    border-radius: 20px;
+    text-align: center;
+    transform: scale(0);
+    vertical-align: middle;
+    box-shadow: 0 0 25px 0px rgba(204, 204, 204, 0.25);
+}
+
+.cards .card p {
+    display: inline-block;
+    vertical-align: center;
+}
+
+.card h1 {
+    margin-bottom: 20px;
+    padding: 20px;
+}
+#rresht {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+}
+
+#pkh {
+    font-size: 16px;
+    padding: .5em 1em;
+    color: azure;
+    background-color: rgb(192, 169, 40);
+    border: none;
+    text-transform: uppercase;
+}
+
+.cards .card:nth-child(odd) {
+    animation: card-from-left .6s ease-in forwards 1s;
+}
+
+.cards .card:nth-child(even) {
+    animation: card-from-right .6s ease-in forwards 1s;
+}
+
+.current-flight {
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 1s ease-in, opacity 1s ease-in;
+    transform: scale(.1);
+    opacity: 0;
+}
+
+.main.open .current-flight {
+    opacity: 1;
+    transform: scale(1) translateX(-50%);
+    transition: transform 1s ease-in .5s, opacity 1s ease-in .4s;
+}
+
+.main .current-flight .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px;
+    background-color: rgba(0, 0, 0, .2);
+    padding: 15px 0px;
+    border-radius: 8px;
+    text-align: center;
+    vertical-align: middle;
+    box-shadow: 0 0 25px 0px rgba(0, 0, 0, .25);
+}
+
+.main::before {
+    display: block;
+    position: absolute;
+    z-index: -1;
+    bottom: 20%;
+    left: cal(50% -50px);
+    width: 100px;
+    height: 100px;
+    background-image: url(./airplane.png);
+    background-size: 100px 100px;
+    animation: airplane 10s linear infinite;
+    content: '';
+}
+
+@keyframes airplane {
+    0% {
+        transform: scale(.5);
+        opacity: 0;
+    }
+
+    30% {
+        transform: scale(2) rotateX(70deg) rotateZ(5deg) translateX(100px);
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: scale(1) rotateX(45deg) rotateZ(60deg) translateY(-800px) translate(500px);
+        opacity: 1;
+    }
+}
+
+@keyframes card-from-left {
+    from {
+        transform: scale(0.8) translateX(-200px);
+        opacity: 0.1;
+    }
+
+    to {
+        transform: scale(0.8) translateX(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes card-from-right {
+    from {
+        transform: scale(0.8) translateX(200px);
+        opacity: 0.1;
+    }
+
+    to {
+        transform: scale(0.8) translateX(0px);
+        opacity: 1;
+    }
+}

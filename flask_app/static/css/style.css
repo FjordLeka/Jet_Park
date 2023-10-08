@@ -1,0 +1,345 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
+
+body {
+    color: azure;
+    background: rgb(12, 12, 12);
+    font-family: "Nunito", sans-serif;
+    height: 100vh;
+    overflow: hidden;
+}
+.map {
+    width: 50%;
+    margin: auto;
+}
+.res {
+    background-color: azure;
+    margin-bottom: auto;
+    color: #000;
+}
+.del {
+    text-decoration: none;
+    color: #ff0266;
+}
+.hello {
+    text-decoration: none;
+    color: rgb(192, 169, 40);
+}
+#navbarSupportedContent {
+    color: azure;
+}
+
+.ed {
+    text-decoration: none;
+    color: #2980b9;
+    margin-right: 5px;
+}
+
+.ed2 {
+    text-decoration: none;
+    color: rgb(0, 255, 0);
+    margin-right: 5px;
+}
+
+.back {
+    position: absolute;
+    background-size: cover;
+    margin-top: 50px;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+@media (min-aspect-ratio: 16/9) {
+    .back {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-aspect-ratio: 16/9) {
+    .back {
+        width: auto;
+        height: 100%;
+    }
+}
+h5 {
+    font-size: 1.3vw;
+}
+
+.mid {
+    margin-top: 4vw;
+}
+
+.grad {
+    background: rgb(0, 139, 160);
+    background: linear-gradient(180deg, rgba(0, 139, 160, 1) 0%, rgba(0, 189, 186, 1) 100%);
+    border: 0px;
+}
+
+.get {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    margin-right: 10%;
+}
+
+.logo {
+    color: azure;
+    font-family: "Pacifico";
+}
+
+.bold {
+    color: azure;
+    font-weight: bold;
+    margin-left: 10px;
+    font-size: larger;
+}
+
+.cla {
+    color: azure;
+}
+
+.logos {
+    color: azure;
+    width: 40px;
+    height: auto;
+    align-items: center;
+    margin-top: -5px;
+}
+
+.stepper {
+    margin-left: 5rem;
+    margin-bottom: 10rem;
+    width: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.step--1,
+.step--2,
+.step--3,
+.step--4 {
+    width: 5rem;
+    padding: 0.5rem 0;
+    background: #fff;
+    color: #666;
+    text-align: center;
+}
+
+.step--1,
+.step--2,
+.step--3 {
+    border-right: 1px solid #666;
+}
+
+.form {
+    background: #fff;
+    text-align: center;
+    margin-left: 5rem;
+    margin-top: -5rem;
+    width: 25rem;
+    box-shadow: 0.2rem 0.2rem 0.5rem rgba(51, 51, 51, 0.2);
+    display: none;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.form--header-container {
+    background: rgb(0, 139, 160);
+    background: linear-gradient(180deg, rgba(0, 139, 160, 1) 0%, rgba(0, 189, 186, 1) 100%);
+    height: 6rem;
+    padding: 1rem 0;
+}
+
+.form--header-title {
+    font-size: 1.4rem;
+}
+
+.form--header-text {
+    padding: 0.5rem 0;
+}
+th, td {
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 7px;
+}
+thead {
+
+    background-color: rgb(192, 169, 40);
+}
+tbody {
+    color: black;
+    background-color: rgb(204, 191, 117);
+}
+.many {
+    text-decoration: none;
+    color: rgb(0, 132, 255);
+}
+input[type="text"] {
+    padding: 0.8rem;
+    margin: auto;
+    margin-top: 0.5rem;
+    width: 20rem;
+    display: block;
+    border-radius: 0.5rem;
+    outline: none;
+    border: 1px solid #bdbdbb;
+}
+
+.form__btn {
+    background: rgb(0, 139, 160);
+    background: linear-gradient(180deg, rgba(0, 139, 160, 1) 0%, rgba(0, 189, 186, 1) 100%);
+    color: #fff;
+    outline: none;
+    border: none;
+    padding: 0.5rem 0.7rem;
+    width: 7rem;
+    margin: 1rem auto;
+    border-radius: 0.9rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 2px;
+}
+
+.form--message-text {
+    width: 25rem;
+    background: #fff;
+    color: #444;
+    padding: 2rem 1rem;
+    text-align: center;
+    font-size: 1.4rem;
+    box-shadow: 0.2rem 0.2rem 0.5rem rgba(51, 51, 51, 0.2);
+    animation: fadeIn 0.8s;
+    border-radius: 1rem;
+}
+
+.form-active {
+    z-index: 1000;
+    display: block;
+}
+
+.form-active-animate {
+    animation: moveRight 1s;
+}
+
+.form-inactive {
+    display: block;
+    animation: moveLeft 1s;
+}
+
+.step-active {
+    background: rgb(0, 139, 160);
+    background: linear-gradient(180deg, rgba(0, 139, 160, 1) 0%, rgba(0, 189, 186, 1) 100%);
+    color: azure;
+    border: 1px solid rgb(0, 139, 160);
+}
+
+@keyframes moveRight {
+    0% {
+        transform: translateX(-27rem) scale(0.9);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0rem) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes moveLeft {
+    0% {
+        transform: translateX(0rem) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(27rem) scale(0.9);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.qender {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    background: rgb(0, 139, 160);
+    background: linear-gradient(180deg, rgba(0, 139, 160, 1) 0%, rgba(0, 189, 186, 1) 100%);
+    color: black;
+    font-size: 14px;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 999;
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+footer i {
+    color: red;
+}
+
+footer a {
+    color: azure;
+    text-decoration: none;
+}
+
+.circle {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000;
+    position: absolute;
+    border-radius: 15px;
+    z-index: -1;
+}
+
+.ngjj {
+    color: azure;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    padding: 1.3rem;
+}
+
+.butoi {
+    margin-top: 15px;
+    border-radius: 7px;
+    background-color: azure;
+    color: black;
+    opacity: 50%;
+}
+.ii {
+    margin-left: 4px;
+}
+
+.butoi:hover {
+    background-color: rgb(192, 169, 40);
+    color: azure;
+    transition: 0.3s;
+    opacity: 80%;
+}
+

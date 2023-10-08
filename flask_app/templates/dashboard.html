@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/download.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <title>JetPark</title>
+
+    <style>
+        .kk {
+            margin-top: 40px;
+        }
+
+        .kkk {
+            margin-top: 20px;
+        }
+
+        body {
+            margin-bottom: 50px;
+        }
+
+        .ll {
+            margin-left: 40px;
+        }
+
+        .bb {
+            margin-right: 50px;
+        }
+
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+
+        html,
+        body {
+            height: 95%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <img class="back" src="../static/img/landing.jpg" style="opacity: 0; transition: opacity 0.5s;"
+        onload="this.style.opacity='1'">
+    </img>
+    <nav class="d-flex p-3 text-center justify-content-between mb-4" style="box-shadow: 0px 0px 10px azure;">
+        <h1> <a class="hello" href="/profile/{{loggedUser.id}}">My Profile, </a>{{loggedUser.first_name}}</h1>
+        {% if myJets %}
+        <a class="btn res" href="/locations">Reserve Parking</a>
+        {% endif %}
+        <a class="btn log2" href="/add/jet">Add Jet</a>
+        <a class="btn log" href="/logout">Logout</a>
+    </nav>
+
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-lg-8 m-auto mt-3 p-5 mywo mt-5">
+                <h2 class="text-center">My Parking History</h2>
+                <table class="table-warning bb">
+                    <thead>
+                        <tr>
+                            <th class="bb" scope="col">Space</th>
+                            <th class="bb" scope="col">Jet</th>
+                            <th class="bb" scope="col">Location</th>
+                            <th class="bb" scope="col">Code</th>
+                            <th class="bb" scope="col">Check In</th>
+                            <th class="bb" scope="col">Check Out</th>
+                            <th scope="col">Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for parking in myParkings %}
+                        <tr>
+                            <th class="bb" scope="row"><a class="many"
+                                    href="/parking/{{parking.id}}">{{parking.space}}</a></th>
+                            <td>{{parking.model}}</td>
+                            <td>{{parking.location}}</td>
+                            <td>{{parking.code}}</td>
+                            <td>{{parking.check_in.strftime('%d %b %Y') }}</td>
+                            <td>{{parking.check_out.strftime('%d %b %Y')}}</td>
+                            <td>{{costs[loop.index0]}} $</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-4 mt-5">
+                <div id="map" class="mapo"></div>
+                <script src="../static/js/map.js"></script>
+                <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFjcC-JUl2hGUXtv0n7hCEOJwPI8Q2cW4&callback=initMap">
+                    </script>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"></script>
+        <script src="{{ url_for('static', filename='js/mouse.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/form.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/download.js') }}"></script>
+
+</body>
+
+</html>

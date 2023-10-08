@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <style>
+        .kkk {
+            margin: auto;
+        }
+    </style>
+    <title>JetPark</title>
+</head>
+
+<body>
+    <img class="back" src="../static/img/landing.jpg" style="opacity: 0; transition: opacity 0.5s;"
+    onload="this.style.opacity='1'">
+</img>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="/register" method="POST">
+                <h1 class="hapsirePosht">Create Account</h1>
+                {% with messages = get_flashed_messages(category_filter=["firstNameRegister"]) %}
+                {% if messages %}
+                {% for message in messages %}
+                <p class="text-danger">{{message}}</p>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+                <input type="text kkk" placeholder="First Name" name="first_name">
+                {% with messages = get_flashed_messages(category_filter=["lastNameRegister"]) %}
+                {% if messages %}
+                {% for message in messages %}
+                <p class="text-danger">{{message}}</p>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+                <input type="text kkk" placeholder="Last Name" name="last_name">
+                {% with messages = get_flashed_messages(category_filter=["nrRegister"]) %}
+                {% if messages %}
+                {% for message in messages %}
+                <p class="text-danger">{{message}}</p>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+                <input type="tel kkk" placeholder="Phone Number" name="phone_number">
+                {% with messages = get_flashed_messages(category_filter=["emailRegister"]) %}
+                {% if messages %}
+                {% for message in messages %}
+                <p class="text-danger">{{message}}</p>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+                <input type="email" placeholder="Email" name="email">
+                {% with messages = get_flashed_messages(category_filter=["passwordRegister"]) %}
+                {% if messages %}
+                {% for message in messages %}
+                <p class="text-danger">{{message}}</p>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+                <input type="password" placeholder="Password" name="password">
+                <button class="hapsireLart">Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="/login" method="POST">
+                <h1 class="hapsirePosht">Log in</h1>
+                {% with messages = get_flashed_messages(category_filter=["emailLogin"]) %}
+                {% if messages %}
+                {% for message in messages %}
+                <p class="text-danger text-center">{{message}}</p>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+                <input type="email" placeholder="Email" name="email">
+                {% with messages = get_flashed_messages(category_filter=["passwordLogin"]) %}
+                {% if messages %}
+                {% for message in messages %}
+                <p class="text-danger text-center">{{message}}</p>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+                <input type="password" placeholder="Password" name="password">
+                <button class="hapsireLart">Log In</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Continue your seamless jet parking experience!</p>
+                    <button class="ghost" id="signIn">Log In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Sky Pilots !</h1>
+                    {% with messages = get_flashed_messages(category_filter=["registrationFailed"]) %}
+                    {% if messages %}
+                    {% for message in messages %}
+                    <p class="text-danger text-center">{{message}}</p>
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                    {% with messages = get_flashed_messages(category_filter=["firstNameRegister"]) %}
+                    {% if messages %}
+                    {% for message in messages %}
+                    <p class="text-danger">{{message}}</p>
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                    <p>Let Us Handle Your Jet Parking Needs, Together!</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/mouse.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script2.js') }}"></script>
+
+</body>
+
+</html>

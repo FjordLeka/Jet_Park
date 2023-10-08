@@ -1,0 +1,38 @@
+.container {
+    width: 50%;
+    align-items: center;
+    margin: auto;
+}
+
+.mmmm {
+    margin-bottom: auto;
+}
+
+.log {
+    color: white;
+    background-color: rgb(190, 74, 80);
+    margin-bottom: auto;
+}
+
+.log2 {
+    color: white;
+    background-color: rgb(188, 190, 74);
+    margin-bottom: auto;
+}
+
+.textBox {
+    height: 30px;
+    width: 300px;
+}
+
+.many {
+    height: 30px;
+    width: 150px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    height: 52px;
+    cursor: pointer;
+    background-color: wheat;
+}

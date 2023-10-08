@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/add.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/download.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <title>JetPark</title>
+</head>
+
+<body>
+    <nav class="d-flex p-3 text-center justify-content-around" style="box-shadow: 0px 0px 10px azure;">
+        <h1 class="hello">Hello {{loggedUser.first_name}}</h1>
+        <a class="btn res" href="/locations">Reserve Parking</a>
+        <a class="btn log2" href="/add/jet">Add Jet</a>
+        <a class="btn log" href="/dashboard">Dashboard</a>
+        <a class="btn log" href="/logout">Logout</a>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col p-5">
+
+                {% with messages = get_flashed_messages(category_filter=["JetUpdate"]) %}
+                {% if messages %}
+                {% for message in messages %}
+                <p class="text-danger text-center">{{message}}</p>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+
+                <form enctype="multipart/form-data" class="w-75 m-auto p-5 border rounded text-dark bg-light  mt-3"
+                    action="/update/jet/{{jet.id}}" method="post">
+                    <h2 class="text-center">Update Jet</h2>
+
+                    <div class="form-row mb-3">
+                        <label class="text-center form-label" >Jet Model:</label>
+                        <input placeholder="Model" type="text" value="{{jet.model}}" class="form-control" name="model">
+                    </div>
+                    {% with messages = get_flashed_messages(category_filter=["modelJet"]) %}
+                    {% if messages %}
+                    {% for message in messages %}
+                    <p class="text-danger text-center">{{message}}</p>
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+
+                    <div class="form-row mb-3">
+                        <label class="text-center form-label" >Jet registration number:</label>
+                        <input placeholder="Registration Number" value="{{jet.registration_nr}}" type="text"
+                            class="form-control" name="registration_nr">
+                    </div>
+                    {% with messages = get_flashed_messages(category_filter=["registrationNr"]) %}
+                    {% if messages %}
+                    {% for message in messages %}
+                    <p class="text-danger text-center">{{message}}</p>
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+
+                    <div class="p-2">
+                        <label class="form-label posh">Change fuel type:  </label>
+                        {% if jet.fuel_type == 'jet-a' %}
+                        <input type="radio" name="fuel_type" checked value="jet-a">
+                        <label>Jet A</label>
+                        <input type="radio" name="fuel_type" value="jet-a1">
+                        <label>Jet A-1</label>
+                        <input type="radio" name="fuel_type" value="jet-b">
+                        <label>Jet B</label>
+                        {% elif jet.fuel_type == 'jet-a1' %}
+                        <input type="radio" name="fuel_type" checked value="jet-a">
+                        <label>Jet A</label>
+                        <input type="radio" name="fuel_type" value="jet-a1">
+                        <label>Jet A-1</label>
+                        <input type="radio" name="fuel_type" value="jet-b">
+                        <label>Jet B</label>
+                        {% else %}
+                        <input type="radio" name="fuel_type" checked value="jet-a">
+                        <label>Jet A</label>
+                        <input type="radio" name="fuel_type" value="jet-a1">
+                        <label>Jet A-1</label>
+                        <input type="radio" name="fuel_type" value="jet-b">
+                        <label>Jet B</label>
+                        {% endif %}
+                    </div>
+
+                    {% with messages = get_flashed_messages(category_filter=["fuelType"]) %}
+                    {% if messages %}
+                    {% for message in messages %}
+                    <p class="text-danger text-center">{{message}}</p>
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+
+                    <button class="mt-2 btn btn-success">Update Jet</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showDiv() {
+            var div = document.getElementById("image-update");
+            if (div.style.display === "none") {
+                div.style.display = "block";
+            } else {
+                div.style.display = "none";
+            }
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/mouse.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/form.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/download.js') }}"></script>
+
+</body>
+
+</html>
